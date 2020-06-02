@@ -1,0 +1,11 @@
+<div class="item-container" [style.padding-left.px]="marginLeft">
+  <div class="item">
+    <i class="fas fa-chevron-right arrow"></i>
+    <i class="fas fa-ellipsis-v menu"></i>
+    <span class="name">{{ section.name }}</span>
+  </div>
+</div>
+
+<app-section *ngFor="let section of section.sections" [section]="section" [depth]="depth + 1"></app-section>
+
+<app-item *ngFor="let item of section.items" [item]="item" [depth]="depth + 1"></app-item>

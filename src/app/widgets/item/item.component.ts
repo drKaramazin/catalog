@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { MenuItem } from '../pop-up-menu/menu-item';
 import { Item } from '../../models/item';
+import { MenuService } from '../../services/menu.service';
 
 @Component({
   selector: 'app-item',
@@ -9,15 +11,33 @@ import { Item } from '../../models/item';
 })
 export class ItemComponent implements OnInit {
 
+  menuItems: MenuItem[] = [];
+
   @Input() item: Item;
   @Input() depth: number;
 
-  marginLeft: string;
+  paddingLeft: string;
 
-  constructor() { }
+  constructor(
+    private menuService: MenuService,
+  ) { }
 
   ngOnInit(): void {
-    this.marginLeft = `${this.depth * 41}`;
+    this.paddingLeft = `${this.depth * 41}`;
+
+    this.menuItems = [{
+      label: 'Редактировать',
+      link: `/edit-item/${this.item.id}`,
+      cssClass: 'fas fa-edit'
+    }, {
+      label: 'Удалить',
+      holder: this.deleteItem.bind(this),
+      cssClass: 'far fa-trash-alt'
+    }];
+  }
+
+  deleteItem() {
+    this.menuService.deleteItem(this.item.id);
   }
 
 }

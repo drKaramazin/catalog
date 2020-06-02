@@ -1,4 +1,6 @@
-export interface Item {
-  name: string,
-  sale: number,
+import { DataItem } from './data-item';
+import { guid } from './guid';
+
+export interface Item extends DataItem {
+  id: guid;
 }

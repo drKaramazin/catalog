@@ -1,0 +1,28 @@
+@import "src/styles/variables";
+
+:host {
+  display: flex;
+}
+
+.container {
+  width: 66px;
+  height: 48px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.container.active {
+  background: $black-color;
+}
+
+.color {
+  border: 2px solid #FFFFFF;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}

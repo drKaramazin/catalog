@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { Section } from '../models/section';
 
 @Injectable({
@@ -12,6 +13,10 @@ export class StoreService {
 
   read(): Section[] {
     return JSON.parse(localStorage.getItem(this.ITEM_NAME));
+  }
+
+  write(sections: Section[]) {
+    localStorage.setItem(this.ITEM_NAME, JSON.stringify(sections));
   }
 
 }

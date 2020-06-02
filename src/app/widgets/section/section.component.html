@@ -1,11 +1,28 @@
-<div class="item-container" [style.padding-left.px]="marginLeft">
+<div class="item-container" [style.padding-left.px]="paddingLeft">
   <div class="item">
-    <i class="fas fa-chevron-right arrow"></i>
-    <i class="fas fa-ellipsis-v menu"></i>
-    <span class="name">{{ section.name }}</span>
+    <div>
+      <div class="color" [style.background-color]="section.color"></div>
+      <a (click)="flip()">
+        <i *ngIf="section.opened; else sectionClosed" class="fas fa-angle-down arrow"></i>
+        <ng-template #sectionClosed>
+          <i class="fas fa-chevron-right arrow"></i>
+        </ng-template>
+      </a>
+      <app-pop-up-menu
+        class="menu"
+        [items]="menuItems"
+      ></app-pop-up-menu>
+      <span class="name">{{ section.name }}</span>
+    </div>
+    <div>
+      <a class="up" (click)="up()" [ngClass]="{ show: section | canUp }"><i class="fas fa-arrow-up"></i></a>
+      <a class="down" (click)="down()" [ngClass]="{ show: section | canDown }"><i class="fas fa-arrow-down"></i></a>
+    </div>
   </div>
 </div>
 
-<app-section *ngFor="let section of section.sections" [section]="section" [depth]="depth + 1"></app-section>
+<ng-container *ngIf="section.opened">
+  <app-section *ngFor="let section of section.sections" [section]="section" [depth]="depth + 1"></app-section>
 
-<app-item *ngFor="let item of section.items" [item]="item" [depth]="depth + 1"></app-item>
+  <app-item *ngFor="let item of section.items" [item]="item" [depth]="depth + 1"></app-item>
+</ng-container>

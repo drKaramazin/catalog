@@ -1,1 +1,5 @@
-<app-section *ngFor="let section of menuService.sections | async" [section]="section" [depth]="0"></app-section>
+<div class="btn-group">
+  <button (click)="addSection()" class="secondary"><i class="fas fa-plus"></i> Раздел</button>
+  <button (click)="addItem()" class="secondary"><i class="fas fa-plus"></i> Позиция</button>
+</div>
+<app-section *ngFor="let section of menuService.menu | async" [section]="section" [depth]="0"></app-section>

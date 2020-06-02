@@ -1,0 +1,9 @@
+@import "src/styles/variables";
+
+.btn-group {
+  display: flex;
+
+  button + button {
+    margin-left: $default-padding;
+  }
+}

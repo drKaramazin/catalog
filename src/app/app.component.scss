@@ -1,7 +1,8 @@
+@import "src/styles/variables";
+
 .container {
-  background: #E7EDF8;
   width: 100%;
   min-height: 100%;
-  padding: 12px;
+  padding: $default-padding;
   box-sizing: border-box;
 }

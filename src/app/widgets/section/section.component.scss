@@ -4,11 +4,35 @@
 }
 
 .menu {
-  margin-left: 40px;
+  margin-left: 24px;
   color: #22242C;
 }
 
 .name {
-  margin-left: 29px;
+  margin-left: 14px;
   font-weight: 500;
+}
+
+.color {
+  height: 100%;
+  width: 3px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item:hover .up.show, .item:hover .down.show {
+  display: inline-block;
+}
+
+.up {
+  margin-right: 17px;
+  display: none;
+}
+
+.down {
+  margin-right: 24px;
+  display: none;
 }

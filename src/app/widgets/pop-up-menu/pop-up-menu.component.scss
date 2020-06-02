@@ -1,0 +1,58 @@
+@import "src/styles/variables";
+
+$width: 30px;
+
+:host {
+  width: $width;
+  height: $width;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+:host(:hover) {
+  background: $primary-color;
+  color: #FFFFFF;
+
+  .items {
+    display: block !important;
+  }
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.items {
+  position: absolute;
+  display: none;
+  top: $width;
+  left: 0;
+  border-radius: 6px;
+  background: #F7FAFF;
+  min-width: 250px;
+  z-index: 1000;
+  box-shadow: 0 0 5px 0 $black-color;
+}
+
+.items a {
+  height: 48px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.items a:hover {
+  background: $primary-color;
+  color: #FFFFFF;
+}
+
+.items .icon {
+  margin-left: 15px;
+  margin-right: 24px;
+}

@@ -1,16 +1,36 @@
+@import "src/styles/variables";
+
 html, body {
   margin: 0;
   padding: 0;
   width: 100vw;
   min-height: 100vh;
 
-  font-family: IBM Plex Sans;
+  font-family: "IBM Plex Sans", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
   line-height: 120%;
 
-  color: #22242C;
+  color: $black-color;
+  background: #E7EDF8;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: $black-color;
+}
+
+a.primary {
+  font-weight: 500;
+  font-size: 16px;
+  color: $primary-color;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 21px;
 }
 
 .item-container {

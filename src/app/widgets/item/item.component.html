@@ -1,7 +1,10 @@
-<div class="item-container" [style.padding-left.px]="marginLeft">
+<div class="item-container" [style.padding-left.px]="paddingLeft">
   <div class="item">
     <div class="name-container">
-      <i class="fas fa-ellipsis-v menu"></i>
+      <app-pop-up-menu
+        class="menu"
+        [items]="menuItems"
+      ></app-pop-up-menu>
       <span class="name">{{ item.name }}</span>
     </div>
     <div class="price-container">

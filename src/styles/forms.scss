@@ -1,0 +1,44 @@
+@import "src/styles/variables";
+
+input, button, select {
+  height: 48px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  display: block;
+  border: 1px solid #C3CEE0;
+  background: #FFFFFF;
+  width: 100%;
+  margin-bottom: $default-padding;
+  padding: 0 $default-padding;
+}
+
+input[type=button], button {
+  cursor: pointer;
+}
+
+input.primary, button.primary {
+  background: $primary-color;
+  border: none;
+  font-weight: 600;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+input.secondary, button.secondary {
+  background: transparent;
+}
+
+label {
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error {
+  color: #ff0000;
+}

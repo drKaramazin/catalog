@@ -1,0 +1,27 @@
+<div class="form-header">
+  <h1>{{ title }}</h1>
+  <a class="primary" routerLink="/">Отмена</a>
+</div>
+
+<form [formGroup]="formGroup" (ngSubmit)="submit(formGroup.value)">
+  <div class="form-group">
+    <label for="name">Название</label>
+    <input type="text" id="name" formControlName="name" placeholder="Введите название позиции">
+    <span class="error" *ngIf="showErrors && formGroup.controls.name.invalid">Введите название, больше 3-х символов</span>
+  </div>
+  <div class="form-group">
+    <label for="sale">Цена</label>
+    <input type="number" min="0" id="sale" formControlName="sale" placeholder="Введите цену">
+    <span class="error" *ngIf="showErrors && formGroup.controls.sale.invalid">Введите цену, больше 0</span>
+  </div>
+  <div class="form-group">
+    <label>Раздел</label>
+    <select id="section" formControlName="section">
+      <option *ngFor="let section of sections" [ngValue]="section.id">{{section.name}}</option>
+    </select>
+    <span class="error" *ngIf="showErrors && formGroup.controls.section.invalid">Выберите раздел</span>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="primary">Сохранить</button>
+  </div>
+</form>

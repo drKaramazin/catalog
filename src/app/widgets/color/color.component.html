@@ -1,0 +1,3 @@
+<div *ngFor="let color of COLORS" class="container" [ngClass]="{ active: value === color }">
+  <div class="color" [style.background-color]="color" (click)="choose(color)"></div>
+</div>

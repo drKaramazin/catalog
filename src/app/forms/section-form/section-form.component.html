@@ -1,0 +1,25 @@
+<div class="form-header">
+  <h1>{{ title }}</h1>
+  <a class="primary" routerLink="/">Отмена</a>
+</div>
+
+<form [formGroup]="formGroup" (ngSubmit)="submit(formGroup.value)">
+  <div class="form-group">
+    <label for="name">Название</label>
+    <input type="text" id="name" formControlName="name" placeholder="Введите название категории">
+    <span class="error" *ngIf="showErrors && formGroup.controls.name.invalid">Введите название, больше 3-х символов</span>
+  </div>
+  <div class="form-group">
+    <label>Раздел</label>
+    <select id="section" formControlName="section">
+      <option *ngFor="let section of sections" [ngValue]="section.id">{{section.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Цвет раздела</label>
+    <app-color formControlName="color"></app-color>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="primary">Сохранить</button>
+  </div>
+</form>
